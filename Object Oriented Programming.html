@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java OOPs Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Java OOPs Programs</h1>
+
+<h2>1. Person Class</h2>
+<pre>
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public static void main(String[] args) {
+        Person person1 = new Person("Alice", 30);
+        Person person2 = new Person("Bob", 25);
+        System.out.println("Name: " + person1.getName() + ", Age: " + person1.getAge());
+        System.out.println("Name: " + person2.getName() + ", Age: " + person2.getAge());
+    }
+}
+</pre>
+
+<h2>2. Dog Class</h2>
+<pre>
+class Dog {
+    private String name;
+    private String breed;
+
+    public Dog(String name, String breed) {
+        this.name = name;
+        this.breed = breed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public static void main(String[] args) {
+        Dog dog1 = new Dog("Buddy", "Golden Retriever");
+        Dog dog2 = new Dog("Max", "Beagle");
+        dog1.setName("Charlie");
+        dog2.setBreed("Labrador");
+
+        System.out.println("Dog 1: " + dog1.getName() + ", Breed: " + dog1.getBreed());
+        System.out.println("Dog 2: " + dog2.getName() + ", Breed: " + dog2.getBreed());
+    }
+}
+</pre>
+
+<h2>3. Rectangle Class</h2>
+<pre>
+class Rectangle {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double calculateArea() {
+        return width * height;
+    }
+
+    public double calculatePerimeter() {
+        return 2 * (width + height);
+    }
+
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5, 10);
+        System.out.println("Area: " + rectangle.calculateArea());
+        System.out.println("Perimeter: " + rectangle.calculatePerimeter());
+    }
+}
+</pre>
+
+<h2>4. Circle Class</h2>
+<pre>
+class Circle {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle(7);
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("Circumference: " + circle.calculateCircumference());
+    }
+}
+</pre>
+
+<h2>5. Book Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Book {
+    private String title;
+    private String author;
+    private String isbn;
+
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+}
+
+class Library {
+    private ArrayList<Book> books = new ArrayList<>();
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
+    public static void main(String[] args) {
+        Library library = new Library();
+        Book book1 = new Book("1984", "George Orwell", "123456789");
+        library.addBook(book1);
+        System.out.println("Added book: " + book1.getTitle());
+    }
+}
+</pre>
+
+<h2>6. Employee Class</h2>
+<pre>
+class Employee {
+    private String name;
+    private String jobTitle;
+    private double salary;
+
+    public Employee(String name, String jobTitle, double salary) {
+        this.name = name;
+        this.jobTitle = jobTitle;
+        this.salary = salary;
+    }
+
+    public void updateSalary(double amount) {
+        this.salary += amount;
+    }
+
+    public double calculateSalary() {
+        return salary;
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee("John", "Developer", 60000);
+        System.out.println("Current Salary: " + employee.calculateSalary());
+        employee.updateSalary(5000);
+        System.out.println("Updated Salary: " + employee.calculateSalary());
+    }
+}
+</pre>
+
+<h2>7. Bank and Account Classes</h2>
+<pre>
+import java.util.ArrayList;
+
+class Account {
+    private String accountNumber;
+    private double balance;
+
+    public Account(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds");
+        }
+    }
+}
+
+class Bank {
+    private ArrayList<Account> accounts = new ArrayList<>();
+
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+    }
+
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Account account1 = new Account("12345", 1000);
+        bank.addAccount(account1);
+        account1.deposit(200);
+        System.out.println("Account balance: " + account1.getBalance());
+    }
+}
+</pre>
+
+<h2>8. TrafficLight Class</h2>
+<pre>
+class TrafficLight {
+    private String color;
+    private int duration;
+
+    public TrafficLight(String color, int duration) {
+        this.color = color;
+        this.duration = duration;
+    }
+
+    public void changeColor(String newColor) {
+        this.color = newColor;
+    }
+
+    public boolean isRed() {
+        return color.equals("red");
+    }
+
+    public boolean isGreen() {
+        return color.equals("green");
+    }
+
+    public static void main(String[] args) {
+        TrafficLight light = new TrafficLight("red", 30);
+        System.out.println("Is the light red? " + light.isRed());
+        light.changeColor("green");
+        System.out.println("Is the light green? " + light.isGreen());
+    }
+}
+</pre>
+
+<h2>9. Employee Class with Hire Date</h2>
+<pre>
+import java.time.LocalDate;
+
+class Employee {
+    private String name;
+    private double salary;
+    private LocalDate hireDate;
+
+    public Employee(String name, double salary, LocalDate hireDate) {
+        this.name = name;
+        this.salary = salary;
+        this.hireDate = hireDate;
+    }
+
+    public int calculateYearsOfService() {
+        return LocalDate.now().getYear() - hireDate.getYear();
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee("Alice", 50000, LocalDate.of(2015, 5, 1));
+        System.out.println("Years of Service: " + employee.calculateYearsOfService());
+    }
+}
+</pre>
+
+<h2>10. Student Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Student {
+    private String name;
+    private String grade;
+    private ArrayList<String> courses = new ArrayList<>();
+
+    public Student(String name, String grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+
+    public void addCourse(String course) {
+        courses.add(course);
+    }
+
+    public void removeCourse(String course) {
+        courses.remove(course);
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student("John", "A");
+        student.addCourse("Math");
+        student.addCourse("Science");
+        System.out.println("Courses: " + student.courses);
+    }
+}
+</pre>
+
+<h2>11. Library Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Book {
+    private String title;
+
+    public Book(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+}
+
+class Library {
+    private ArrayList<Book> books = new ArrayList<>();
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
+    public static void main(String[] args) {
+        Library library = new Library();
+        library.addBook(new Book("The Great Gatsby"));
+        System.out.println("Added book: " + library.books.get(0).getTitle());
+    }
+}
+</pre>
+
+<h2>12. Airplane Class</h2>
+<pre>
+class Airplane {
+    private String flightNumber;
+    private String destination;
+    private String departureTime;
+
+    public Airplane(String flightNumber, String destination, String departureTime) {
+        this.flightNumber = flightNumber;
+        this.destination = destination;
+        this.departureTime = departureTime;
+    }
+
+    public void checkFlightStatus() {
+        System.out.println("Flight " + flightNumber + " to " + destination + " departs at " + departureTime);
+    }
+
+    public static void main(String[] args) {
+        Airplane airplane = new Airplane("AB123", "New York", "10:00 AM");
+        airplane.checkFlightStatus();
+    }
+}
+</pre>
+
+<h2>13. Inventory Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Product {
+    private String name;
+
+    public Product(String name) {
+        this.name = name;
+    }
+}
+
+class Inventory {
+    private ArrayList<Product> products = new ArrayList<>();
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public void removeProduct(Product product) {
+        products.remove(product);
+    }
+
+    public static void main(String[] args) {
+        Inventory inventory = new Inventory();
+        inventory.addProduct(new Product("Laptop"));
+        System.out.println("Added product: " + inventory.products.get(0).name);
+    }
+}
+</pre>
+
+<h2>14. School Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Student {
+    private String name;
+
+    public Student(String name) {
+        this.name = name;
+    }
+}
+
+class Teacher {
+    private String name;
+
+    public Teacher(String name) {
+        this.name = name;
+    }
+}
+
+class School {
+    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Teacher> teachers = new ArrayList<>();
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
+    }
+
+    public static void main(String[] args) {
+        School school = new School();
+        school.addStudent(new Student("Alice"));
+        school.addTeacher(new Teacher("Mr. Smith"));
+    }
+}
+</pre>
+
+<h2>15. MusicLibrary Class</h2>
+<pre>
+import java.util.ArrayList;
+import java.util.Random;
+
+class Song {
+    private String title;
+
+    public Song(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+}
+
+class MusicLibrary {
+    private ArrayList<Song> songs = new ArrayList<>();
+
+    public void addSong(Song song) {
+        songs.add(song);
+    }
+
+    public void removeSong(Song song) {
+        songs.remove(song);
+    }
+
+    public Song playRandomSong() {
+        Random rand = new Random();
+        return songs.get(rand.nextInt(songs.size()));
+    }
+
+    public static void main(String[] args) {
+        MusicLibrary library = new MusicLibrary();
+        library.addSong(new Song("Song A"));
+        library.addSong(new Song("Song B"));
+        System.out.println("Playing: " + library.playRandomSong().getTitle());
+    }
+}
+</pre>
+
+<h2>16. Shape Class with Abstract Methods</h2>
+<pre>
+abstract class Shape {
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    double calculateArea() {
+        return width * height;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * (width + height);
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    public static void main(String[] args) {
+        Shape rectangle = new Rectangle(5, 10);
+        Shape circle = new Circle(7);
+        System.out.println("Rectangle Area: " + rectangle.calculateArea());
+        System.out.println("Circle Area: " + circle.calculateArea());
+    }
+}
+</pre>
+
+<h2>17. Movie Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class Review {
+    private String content;
+
+    public Review(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+}
+
+class Movie {
+    private String title;
+    private String director;
+    private ArrayList<Review> reviews = new ArrayList<>();
+
+    public Movie(String title, String director) {
+        this.title = title;
+        this.director = director;
+    }
+
+    public void addReview(Review review) {
+        reviews.add(review);
+    }
+
+    public void displayReviews() {
+        for (Review review : reviews) {
+            System.out.println("Review: " + review.getContent());
+        }
+    }
+
+    public static void main(String[] args) {
+        Movie movie = new Movie("Inception", "Christopher Nolan");
+        movie.addReview(new Review("Great movie!"));
+        movie.displayReviews();
+    }
+}
+</pre>
+
+<h2>18. Restaurant Class</h2>
+<pre>
+import java.util.ArrayList;
+
+class MenuItem {
+    private String name;
+    private double price;
+
+    public MenuItem(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+
+class Restaurant {
+    private ArrayList<MenuItem> menuItems = new ArrayList<>();
+
+    public void addMenuItem(MenuItem item) {
+        menuItems.add(item);
+    }
+
+    public double calculateAverageRating() {
+        // This can be a placeholder as rating logic is not provided
+        return 4.5; // Example fixed average rating
+    }
+
+    public static void main(String[] args) {
+        Restaurant restaurant = new Restaurant();
+        restaurant.addMenuItem(new MenuItem("Burger", 5.99));
+        System.out.println("Average Rating: " + restaurant.calculateAverageRating());
+    }
+}
+</pre>
+
+<h2>19. Travel Class</h2>
+<pre>
+class Travel {
+    public void searchFlights() {
+        System.out.println("Searching for flights...");
+    }
+
+    public void searchHotels() {
+        System.out.println("Searching for hotels...");
+    }
+
+    public void bookReservation() {
+        System.out.println("Booking reservation...");
+    }
+
+    public void cancelReservation() {
+        System.out.println("Canceling reservation...");
+    }
+
+    public static void main(String[] args) {
+        Travel travel = new Travel();
+        travel.searchFlights();
+        travel.searchHotels();
+    }
+}
+</pre>
+
+<h2>20. Default Constructor Example</h2>
+<pre>
+class DefaultConstructorExample {
+    public DefaultConstructorExample() {
+        System.out.println("Default Constructor Called");
+    }
+
+    public static void main(String[] args) {
+        DefaultConstructorExample example = new DefaultConstructorExample();
+    }
+}
+</pre>
+
+<h2>21. Parameterized Constructor Example</h2>
+<pre>
+class ParameterizedConstructorExample {
+    private String message;
+
+    public ParameterizedConstructorExample(String message) {
+        this.message = message;
+    }
+
+    public void displayMessage() {
+        System.out.println("Message: " + message);
+    }
+
+    public static void main(String[] args) {
+        ParameterizedConstructorExample example = new ParameterizedConstructorExample("Hello, World!");
+        example.displayMessage();
+    }
+}
+</pre>
+
+<h2>22. Copy Constructor Example</h2>
+<pre>
+class CopyConstructorExample {
+    private String name;
+
+    public CopyConstructorExample(String name) {
+        this.name = name;
+    }
+
+    public CopyConstructorExample(CopyConstructorExample obj) {
+        this.name = obj.name;
+    }
+
+    public void display() {
+        System.out.println("Name: " + name);
+    }
+
+    public static void main(String[] args) {
+        CopyConstructorExample original = new CopyConstructorExample("Alice");
+        CopyConstructorExample copy = new CopyConstructorExample(original);
+        copy.display();
+    }
+}
+</pre>
+
+<h2>23. Student Class with Roll Number Generation</h2>
+<pre>
+import java.util.Scanner;
+
+class Student {
+    private static int rollNoCounter = 0;
+    private int rollNo;
+    private String name;
+    private String studentClass;
+
+    public Student(String name, String studentClass) {
+        this.name = name;
+        this.studentClass = studentClass;
+        this.rollNo = ++rollNoCounter;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Student[] students = new Student[10];
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Enter name for student " + (i + 1) + ": ");
+            String name = scanner.nextLine();
+            System.out.print("Enter class for student " + (i + 1) + ": ");
+            String studentClass = scanner.nextLine();
+            students[i] = new Student(name, studentClass);
+            System.out.println("Roll No: " + students[i].rollNo + ", Name: " + students[i].name);
+        }
+    }
+}
+</pre>
+
+<h2>24. Method Overloading Example</h2>
+<pre>
+class Area {
+    public double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public double calculateArea(double length, double width) {
+        return length * width;
+    }
+
+    public static void main(String[] args) {
+        Area area = new Area();
+        System.out.println("Area of Circle: " + area.calculateArea(7));
+        System.out.println("Area of Rectangle: " + area.calculateArea(5, 10));
+    }
+}
+</pre>
+
+<h2>25. Command Line Arguments Example</h2>
+<pre>
+class CommandLineArgs {
+    public static void main(String[] args) {
+        System.out.println("Command Line Arguments:");
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
+}
+</pre>
+
+<h2>26. Person Class with Getters and Setters</h2>
+<pre>
+class Person {
+    private String name;
+    private int age;
+    private String country;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Alice");
+        person.setAge(25);
+        person.setCountry("USA");
+        System.out.println("Name: " + person.getName() + ", Age: " + person.getAge() + ", Country: " + person.getCountry());
+    }
+}
+</pre>
+
+<h2>27. BankAccount Class with Getters and Setters</h2>
+<pre>
+class BankAccount {
+    private String accountNumber;
+    private double balance;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        account.setAccountNumber("123456");
+        account.setBalance(1000.50);
+        System.out.println("Account Number: " + account.getAccountNumber() + ", Balance: $" + account.getBalance());
+    }
+}
+</pre>
+
+<h2>28. Rectangle Class with Getters and Setters</h2>
+<pre>
+class Rectangle {
+    private double length;
+    private double width;
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.setLength(5);
+        rectangle.setWidth(10);
+        System.out.println("Length: " + rectangle.getLength() + ", Width: " + rectangle.getWidth());
+    }
+}
+</pre>
+
+<h2>29. Employee Class with Getters and Salary Formatting</h2>
+<pre>
+class Employee {
+    private String employee_id;
+    private String employee_name;
+    private double employee_salary;
+
+    public String getEmployeeId() {
+        return employee_id;
+    }
+
+    public void setEmployeeId(String employee_id) {
+        this.employee_id = employee_id;
+    }
+
+    public String getEmployeeName() {
+        return employee_name;
+    }
+
+    public void setEmployeeName(String employee_name) {
+        this.employee_name = employee_name;
+    }
+
+    public String getFormattedSalary() {
+        return String.format("$%.2f", employee_salary);
+    }
+
+    public void setEmployeeSalary(double employee_salary) {
+        this.employee_salary = employee_salary;
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee();
+        employee.setEmployeeId("E123");
+        employee.setEmployeeName("Alice");
+        employee.setEmployeeSalary(75000);
+        System.out.println("ID: " + employee.getEmployeeId() + ", Name: " + employee.getEmployeeName() + ", Salary: " + employee.getFormattedSalary());
+    }
+}
+</pre>
+
+<h2>30. Circle Class with Getter and Setter for Radius</h2>
+<pre>
+class Circle {
+    private double radius;
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        circle.setRadius(7);
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("Perimeter: " + circle.calculatePerimeter());
+    }
+}
+</pre>
+
+<h2>31. Car Class with Getter for Mileage</h2>
+<pre>
+class Car {
+    private String company_name;
+    private String model_name;
+    private int year;
+    private double mileage;
+
+    public String getCompanyName() {
+        return company_name;
+    }
+
+    public void setCompanyName(String company_name) {
+        this.company_name = company_name;
+    }
+
+    public String getModelName() {
+        return model_name;
+    }
+
+    public void setModelName(String model_name) {
+        this.model_name = model_name;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.setCompanyName("Toyota");
+        car.setModelName("Camry");
+        car.setYear(2020);
+        System.out.println("Company: " + car.getCompanyName() + ", Model: " + car.getModelName() + ", Year: " + car.getYear() + ", Mileage: " + car.getMileage());
+    }
+}
+</pre>
+
+<h2>32. Student Class with Additional Grade Validation</h2>
+<pre>
+import java.util.ArrayList;
+
+class Student {
+    private String student_id;
+    private String student_name;
+    private ArrayList<Double> grades = new ArrayList<>();
+
+    public String getStudentId() {
+        return student_id;
+    }
+
+    public void setStudentId(String student_id) {
+        this.student_id = student_id;
+    }
+
+    public String getStudentName() {
+        return student_name;
+    }
+
+    public void setStudentName(String student_name) {
+        this.student_name = student_name;
+    }
+
+    public void addGrade(double grade) {
+        if (grade >= 0 && grade <= 100) {
+            grades.add(grade);
+        } else {
+            System.out.println("Invalid grade. Please enter a value between 0 and 100.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.setStudentId("S123");
+        student.setStudentName("Alice");
+        student.addGrade(95);
+        student.addGrade(110); // Invalid grade
+    }
+}
+</pre>
+</body>
+</html>

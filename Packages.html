@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Packages Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Java Packages Programs</h1>
+
+    <h2>1. Accessing java.util.Date Class via Import</h2>
+    <pre>
+import java.util.Date;
+
+public class CurrentDateImport {
+    public static void main(String[] args) {
+        Date currentDate = new Date();
+        System.out.println("Current Date: " + currentDate);
+    }
+}
+    </pre>
+
+    <h2>2. Accessing java.util.Date Class via Qualified Way</h2>
+    <pre>
+public class CurrentDateQualified {
+    public static void main(String[] args) {
+        java.util.Date currentDate = new java.util.Date();
+        System.out.println("Current Date: " + currentDate);
+    }
+}
+    </pre>
+
+    <h2>3. Inheriting java.util.Date Class via Import</h2>
+    <pre>
+import java.util.Date;
+
+class MyDate extends Date {
+    // No additional fields or methods
+}
+
+public class CurrentDateInheritImport {
+    public static void main(String[] args) {
+        MyDate currentDate = new MyDate();
+        System.out.println("Current Date: " + currentDate);
+    }
+}
+    </pre>
+
+    <h2>4. Inheriting java.util.Date Class via Qualified Way</h2>
+    <pre>
+class MyDate extends java.util.Date {
+    // No additional fields or methods
+}
+
+public class CurrentDateInheritQualified {
+    public static void main(String[] args) {
+        MyDate currentDate = new MyDate();
+        System.out.println("Current Date: " + currentDate);
+    }
+}
+    </pre>
+
+    <h2>5. Creating a Package with Multiple Default Classes</h2>
+    <pre>
+package mypackage;
+
+class ClassOne {
+    void display() {
+        System.out.println("Class One");
+    }
+}
+
+class ClassTwo {
+    void display() {
+        System.out.println("Class Two");
+    }
+}
+
+class ClassThree {
+    void display() {
+        System.out.println("Class Three");
+    }
+}
+
+class ClassFour {
+    void display() {
+        System.out.println("Class Four");
+    }
+}
+
+public class PackageDemo {
+    public static void main(String[] args) {
+        ClassOne c1 = new ClassOne();
+        ClassTwo c2 = new ClassTwo();
+        ClassThree c3 = new ClassThree();
+        ClassFour c4 = new ClassFour();
+
+        c1.display();
+        c2.display();
+        c3.display();
+        c4.display();
+    }
+}
+    </pre>
+
+    <h2>6. Creating a Package with 4 Public Classes</h2>
+    <pre>
+package mypackage;
+
+public class ClassA {
+    public void display() {
+        System.out.println("Class A");
+    }
+}
+
+public class ClassB {
+    public void display() {
+        System.out.println("Class B");
+    }
+}
+
+public class ClassC {
+    public void display() {
+        System.out.println("Class C");
+    }
+}
+
+public class ClassD {
+    public void display() {
+        System.out.println("Class D");
+    }
+}
+
+// Save this as another file (e.g., MainClass.java)
+import mypackage.*;
+
+public class MainClass {
+    public static void main(String[] args) {
+        ClassA a = new ClassA();
+        ClassB b = new ClassB();
+        ClassC c = new ClassC();
+        ClassD d = new ClassD();
+
+        a.display();
+        b.display();
+        c.display();
+        d.display();
+    }
+}
+    </pre>
+
+    <h2>7. Employee Payroll Processing Using Packages</h2>
+    <pre>
+package employee;
+
+public class Emp {
+    String name;
+    String empid;
+    String category;
+    double bpay, hra, da, npay, pf, grosspay, incometax, allowance;
+
+    public void calculatePay() {
+        // Sample calculations
+        grosspay = bpay + hra + da;
+        npay = grosspay - (pf + incometax);
+    }
+}
+
+// Save this as another file (e.g., Emppay.java)
+import employee.Emp;
+
+public class Emppay {
+    public static void main(String[] args) {
+        Emp e = new Emp();
+        e.name = "John Doe";
+        e.empid = "E001";
+        e.bpay = 30000;
+        e.hra = 5000;
+        e.da = 2000;
+        e.pf = 2000;
+        e.incometax = 500;
+        e.calculatePay();
+
+        System.out.println("Employee Name: " + e.name);
+        System.out.println("Net Pay: " + e.npay);
+        System.out.println("Gross Pay: " + e.grosspay);
+    }
+}
+    </pre>
+
+    <h2>8. Package with Public Class and Protected Members</h2>
+    <pre>
+package mypackage;
+
+public class PublicClass {
+    protected String message = "Protected Message";
+
+    public void showMessage() {
+        System.out.println(message);
+    }
+}
+
+// Save this as another file (e.g., AccessProtected.java)
+import mypackage.PublicClass;
+
+public class AccessProtected extends PublicClass {
+    public static void main(String[] args) {
+        AccessProtected obj = new AccessProtected();
+        obj.showMessage();
+    }
+}
+    </pre>
+
+    <h2>9. Nested Package c4.sample</h2>
+    <pre>
+package c4.sample;
+
+public class SampleClass {
+    protected String nestedMessage = "Nested Protected Message";
+
+    public void showNestedMessage() {
+        System.out.println(nestedMessage);
+    }
+}
+
+// Save this as another file (e.g., AccessNested.java)
+import c4.sample.SampleClass;
+
+public class AccessNested extends SampleClass {
+    public static void main(String[] args) {
+        AccessNested obj = new AccessNested();
+        obj.showNestedMessage();
+    }
+}
+    </pre>
+
+    <h2>10. Package with Public Class and Public Members</h2>
+    <pre>
+package mypackage;
+
+public class PublicClass {
+    public String message = "Public Message";
+
+    public void showMessage() {
+        System.out.println(message);
+    }
+}
+
+// Save this as another file (e.g., MainClass.java)
+import mypackage.PublicClass;
+
+public class MainClass {
+    public static void main(String[] args) {
+        PublicClass obj = new PublicClass();
+        obj.showMessage();
+    }
+}
+    </pre>
+
+</body>
+</html>

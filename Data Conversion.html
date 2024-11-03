@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Conversion Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #004d7a; /* Deep teal */
+        }
+
+        .conversion-example {
+            border: 1px solid #004d7a;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* White background for examples */
+        }
+
+        pre {
+            background-color: #f9f9f9; /* Light gray for code block */
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto; /* Scrollable if code is too long */
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Conversion Programs</h1>
+
+    <div class="conversion-example">
+        <h2>1. How to convert String to int</h2>
+        <pre>
+String str = "123";
+int num = Integer.parseInt(str); // Converts String to int
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>2. How to convert int to String</h2>
+        <pre>
+int num = 123;
+String str = Integer.toString(num); // Converts int to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>3. How to convert String to long</h2>
+        <pre>
+String str = "123456789";
+long num = Long.parseLong(str); // Converts String to long
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>4. How to convert long to String</h2>
+        <pre>
+long num = 123456789L;
+String str = Long.toString(num); // Converts long to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>5. How to convert String to float</h2>
+        <pre>
+String str = "123.45";
+float num = Float.parseFloat(str); // Converts String to float
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>6. How to convert float to String</h2>
+        <pre>
+float num = 123.45f;
+String str = Float.toString(num); // Converts float to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>7. How to convert String to double</h2>
+        <pre>
+String str = "123.45";
+double num = Double.parseDouble(str); // Converts String to double
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>8. How to convert double to String</h2>
+        <pre>
+double num = 123.45;
+String str = Double.toString(num); // Converts double to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>9. How to convert String to Date</h2>
+        <pre>
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+String str = "2024-10-31";
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+Date date = sdf.parse(str); // Converts String to Date
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>10. How to convert Date to String</h2>
+        <pre>
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+Date date = new Date();
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+String str = sdf.format(date); // Converts Date to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>11. How to convert String to char</h2>
+        <pre>
+String str = "Hello";
+char ch = str.charAt(0); // Converts String to char (first character)
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>12. How to convert char to String</h2>
+        <pre>
+char ch = 'H';
+String str = Character.toString(ch); // Converts char to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>13. How to convert String to Object</h2>
+        <pre>
+String str = "Hello";
+Object obj = str; // Implicitly converts String to Object
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>14. How to convert Object to String</h2>
+        <pre>
+Object obj = "Hello";
+String str = (String) obj; // Explicitly converts Object to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>15. How to convert int to long</h2>
+        <pre>
+int num = 123;
+long longNum = (long) num; // Converts int to long
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>16. How to convert long to int</h2>
+        <pre>
+long longNum = 123456789L;
+int num = (int) longNum; // Converts long to int
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>17. How to convert int to double</h2>
+        <pre>
+int num = 123;
+double doubleNum = (double) num; // Converts int to double
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>18. How to convert double to int</h2>
+        <pre>
+double doubleNum = 123.45;
+int num = (int) doubleNum; // Converts double to int (truncates decimal)
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>19. How to convert char to int</h2>
+        <pre>
+char ch = 'A';
+int num = (int) ch; // Converts char to int (ASCII value)
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>20. How to convert int to char</h2>
+        <pre>
+int num = 65;
+char ch = (char) num; // Converts int to char (ASCII value)
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>21. How to convert String to boolean</h2>
+        <pre>
+String str = "true";
+boolean bool = Boolean.parseBoolean(str); // Converts String to boolean
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>22. How to convert boolean to String</h2>
+        <pre>
+boolean bool = true;
+String str = Boolean.toString(bool); // Converts boolean to String
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>23. How to convert Date to Timestamp</h2>
+        <pre>
+import java.sql.Timestamp;
+import java.util.Date;
+
+Date date = new Date();
+Timestamp timestamp = new Timestamp(date.getTime()); // Converts Date to Timestamp
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>24. How to convert Timestamp to Date</h2>
+        <pre>
+import java.sql.Timestamp;
+import java.util.Date;
+
+Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+Date date = new Date(timestamp.getTime()); // Converts Timestamp to Date
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>25. How to convert Binary to Decimal</h2>
+        <pre>
+String binaryStr = "1010";
+int decimal = Integer.parseInt(binaryStr, 2); // Converts Binary to Decimal
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>26. How to convert Decimal to Binary</h2>
+        <pre>
+int decimal = 10;
+String binaryStr = Integer.toBinaryString(decimal); // Converts Decimal to Binary
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>27. How to convert Hex to Decimal</h2>
+        <pre>
+String hexStr = "A";
+int decimal = Integer.parseInt(hexStr, 16); // Converts Hex to Decimal
+        </pre>
+    </div>
+
+    <div class="conversion-example">
+        <h2>28. How to convert Decimal to Hex</h2>
+        <pre>
+int decimal = 10;
+String hexStr = Integer.toHexString(decimal); // Converts Decimal to Hex
+        </pre>
+    </div>
+
+    <

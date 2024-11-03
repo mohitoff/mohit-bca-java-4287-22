@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java GUI Program Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #004d7a; /* Deep teal */
+        }
+
+        .program-example {
+            border: 1px solid #004d7a;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* White background for examples */
+        }
+
+        pre {
+            background-color: #f9f9f9; /* Light gray for code block */
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto; /* Scrollable if code is too long */
+        }
+    </style>
+</head>
+<body>
+    <h1>Delegation Event Model Programs</h1>
+
+    <div class="program-example">
+        <h2>1. Java Program to Display Some Text in the Frame using Labels</h2>
+        <pre>
+import javax.swing.*;
+
+public class DisplayText {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Text Display");
+        JLabel label = new JLabel("Hello, World!");
+        frame.add(label);
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>2. Java Program to Create Text Area and Password Field</h2>
+        <pre>
+import javax.swing.*;
+
+public class TextAreaPasswordField {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Text Area and Password Field");
+        JTextArea textArea = new JTextArea();
+        JPasswordField passwordField = new JPasswordField();
+        frame.add(textArea);
+        frame.add(passwordField);
+        frame.setSize(400, 300);
+        frame.setLayout(new java.awt.FlowLayout());
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>3. Java Program to Create a Button and Display Image in the Frame when Clicked</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class ImageDisplay {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Image Display");
+        JButton button = new JButton("Click to see Image");
+        JLabel label = new JLabel();
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                label.setIcon(new ImageIcon("path/to/image.jpg")); // Set your image path
+            }
+        });
+        frame.add(button);
+        frame.add(label);
+        frame.setSize(400, 400);
+        frame.setLayout(new java.awt.FlowLayout());
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>4. Java Program to Create 2 Radio Buttons and Display Selected Button Label</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class RadioButtonExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Radio Button Example");
+        JRadioButton button1 = new JRadioButton("Option 1");
+        JRadioButton button2 = new JRadioButton("Option 2");
+        JButton button = new JButton("Show Selected");
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String selected = button1.isSelected() ? "Option 1" : "Option 2";
+                JOptionPane.showMessageDialog(frame, "Selected: " + selected);
+            }
+        });
+        ButtonGroup group = new ButtonGroup();
+        group.add(button1);
+        group.add(button2);
+        frame.add(button1);
+        frame.add(button2);
+        frame.add(button);
+        frame.setSize(300, 200);
+        frame.setLayout(new java.awt.FlowLayout());
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>5. Java Program to Handle KeyBoardEvent</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class KeyboardEventExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Keyboard Event Example");
+        JLabel label = new JLabel("Press any key");
+        frame.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                label.setText("Key Pressed: " + e.getKeyChar());
+            }
+        });
+        frame.add(label);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>6. Java Program to Handle MouseEvent</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MouseEventExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Mouse Event Example");
+        JLabel label = new JLabel("Mouse Click anywhere");
+        label.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                label.setText("Mouse Clicked at: " + e.getX() + ", " + e.getY());
+            }
+        });
+        frame.add(label);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>7. Java Program to Get and Set State and Get Label of a Check Box</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class CheckBoxExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Check Box Example");
+        JCheckBox checkBox = new JCheckBox("Check me");
+        JButton button = new JButton("Show State");
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "CheckBox is " + (checkBox.isSelected() ? "Checked" : "Unchecked"));
+            }
+        });
+        frame.add(checkBox);
+        frame.add(button);
+        frame.setSize(300, 200);
+        frame.setLayout(new java.awt.FlowLayout());
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>8. Java Program to Create Check Boxes and Radio Buttons</h2>
+        <pre>
+import javax.swing.*;
+
+public class CheckBoxesAndRadioButtons {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Check Boxes and Radio Buttons");
+        JCheckBox checkBox1 = new JCheckBox("Check Box 1");
+        JCheckBox checkBox2 = new JCheckBox("Check Box 2");
+        JRadioButton radioButton1 = new JRadioButton("Radio Button 1");
+        JRadioButton radioButton2 = new JRadioButton("Radio Button 2");
+        ButtonGroup group = new ButtonGroup();
+        group.add(radioButton1);
+        group.add(radioButton2);
+        frame.add(checkBox1);
+        frame.add(checkBox2);
+        frame.add(radioButton1);
+        frame.add(radioButton2);
+        frame.setSize(300, 200);
+        frame.setLayout(new java.awt.FlowLayout());
+        frame.setVisible(true);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>9. Java Program to Create and Switch between Frames using Buttons</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class SwitchFrames {
+    public static void main(String[] args) {
+        JFrame frame1 = new JFrame("Frame 1");
+        JButton button = new JButton("Go to Frame 2");
+        frame1.add(button);
+        frame1.setSize(300, 200);
+        frame1.setVisible(true);
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JFrame frame2 = new JFrame("Frame 2");
+        JButton backButton = new JButton("Go back to Frame 1");
+        frame2.add(backButton);
+        frame2.setSize(300, 200);
+        
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame1.setVisible(false);
+                frame2.setVisible(true);
+            }
+        });
+
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame2.setVisible(false);
+                frame1.setVisible(true);
+            }
+        });
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>10. Java Program to Create and Set Border to Push Buttons</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.*;
+
+public class BorderPushButton {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Bordered Button Example");
+        JButton button = new JButton("Button with Border");
+        button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        frame.add(button);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>11. Java Program to Create a List Box to Select Multiple Items and Display it in the Frame</h2>
+        <pre>
+import javax.swing.*;
+
+public class ListBoxExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("List Box Example");
+        String[] items = {"Item 1", "Item 2", "Item 3", "Item 4"};
+        JList<String> list = new JList<>(items);
+        list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        frame.add(new JScrollPane(list));
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>12. Java Program to Display a Message in a New Frame</h2>
+        <pre>
+import javax.swing.*;
+
+public class NewFrameMessage {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("New Frame");
+        JOptionPane.showMessageDialog(frame, "This is a message in a new frame.");
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>13. Java Program to Close the Frame using WindowAdapter Class</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class CloseFrame {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Close Frame Example");
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                int response = JOptionPane.showConfirmDialog(frame, "Do you really want to close?");
+                if (response == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>14. Java Program to Check Which Fonts are Available in a Local System</h2>
+        <pre>
+import javax.swing.*;
+
+public class FontCheck {
+    public static void main(String[] args) {
+        String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        for (String font : fonts) {
+            System.out.println(font);
+        }
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>15. Java Program to Display Text in Different Fonts</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.*;
+
+public class DifferentFonts {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Different Fonts Example");
+        JLabel label = new JLabel("Hello, World!");
+        label.setFont(new Font("Serif", Font.BOLD, 24));
+        frame.add(label);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>16. Java Program to Change Frame Background Color as Cyan</h2>
+        <pre>
+import javax.swing.*;
+
+public class ChangeBackgroundColor {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Change Background Color");
+        frame.getContentPane().setBackground(Color.CYAN);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>17. Java Program to Change the Applet Background Colour when Button Clicked</h2>
+        <pre>
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ChangeAppletBackground extends Applet {
+    public void init() {
+        Button button = new Button("Change Color");
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setBackground(Color.YELLOW);
+            }
+        });
+        add(button);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>18. Java Program to Display Several Dots on the Screen Continuously</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.*;
+
+public class DotsDisplay extends JPanel {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (int i = 0; i < 100; i++) {
+            g.fillOval((int)(Math.random() * 400), (int)(Math.random() * 400), 10, 10);
+        }
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Dots Display");
+        DotsDisplay panel = new DotsDisplay();
+        frame.add(panel);
+        frame.setSize(400, 400);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>19. Java Program to Validate the TextField for only entering numbers using KeyListener</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class NumberValidation {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Number Validation");
+        JTextField textField = new JTextField(10);
+        textField.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                if (!Character.isDigit(e.getKeyChar())) {
+                    e.consume(); // Ignore non-digit input
+                }
+            }
+        });
+        frame.add(textField);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="program-example">
+        <h2>20. Java Program to Validate the TextField for only entering email id using KeyAdapter</h2>
+        <pre>
+import javax.swing.*;
+import java.awt.event.*;
+
+public class EmailValidation {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Email Validation");
+        JTextField textField = new JTextField(20);
+        textField.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                // Simple email validation logic can be added here
+                // e.g., allow only characters, digits, '@', '.', etc.
+            }
+        });
+        frame.add(textField);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+        </pre>
+    </div>
+
+</body>
+</html>

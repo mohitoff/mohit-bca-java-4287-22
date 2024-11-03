@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Interfaces Programs</title>
+</head>
+<body>
+    <h1>Java Interfaces Programs</h1>
+
+    <h2>1. Shape Interface and Implementing Classes</h2>
+    <pre><code>
+interface Shape {
+    double getArea();
+}
+
+class Rectangle implements Shape {
+    private double width, height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double getArea() {
+        return width * height;
+    }
+}
+
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Triangle implements Shape {
+    private double base, height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+}
+
+public class ShapeTest {
+    public static void main(String[] args) {
+        Shape rect = new Rectangle(5, 10);
+        Shape circle = new Circle(7);
+        Shape triangle = new Triangle(4, 5);
+
+        System.out.println("Rectangle area: " + rect.getArea());
+        System.out.println("Circle area: " + circle.getArea());
+        System.out.println("Triangle area: " + triangle.getArea());
+    }
+}
+    </code></pre>
+
+    <h2>2. Animal Interface and Dog Class</h2>
+    <pre><code>
+interface Animal {
+    void bark();
+}
+
+class Dog implements Animal {
+    public void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class AnimalTest {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.bark();
+    }
+}
+    </code></pre>
+
+    <h2>3. Flyable Interface and Implementing Classes</h2>
+    <pre><code>
+interface Flyable {
+    void fly_obj();
+}
+
+class Spacecraft implements Flyable {
+    public void fly_obj() {
+        System.out.println("Spacecraft is flying in space");
+    }
+}
+
+class Airplane implements Flyable {
+    public void fly_obj() {
+        System.out.println("Airplane is flying in the sky");
+    }
+}
+
+class Helicopter implements Flyable {
+    public void fly_obj() {
+        System.out.println("Helicopter is flying above the ground");
+    }
+}
+
+public class FlyableTest {
+    public static void main(String[] args) {
+        Flyable spacecraft = new Spacecraft();
+        Flyable airplane = new Airplane();
+        Flyable helicopter = new Helicopter();
+
+        spacecraft.fly_obj();
+        airplane.fly_obj();
+        helicopter.fly_obj();
+    }
+}
+    </code></pre>
+
+    <h2>4. Banking System with Interfaces</h2>
+    <pre><code>
+import java.util.ArrayList;
+import java.util.List;
+
+interface Account {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double calculateInterest();
+    double viewBalance();
+}
+
+class SavingsAccount implements Account {
+    private double balance;
+
+    public SavingsAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        balance -= amount;
+    }
+
+    public double calculateInterest() {
+        return balance * 0.04; // 4% interest
+    }
+
+    public double viewBalance() {
+        return balance;
+    }
+}
+
+class CurrentAccount implements Account {
+    private double balance;
+
+    public CurrentAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        balance -= amount;
+    }
+
+    public double calculateInterest() {
+        return 0; // No interest
+    }
+
+    public double viewBalance() {
+        return balance;
+    }
+}
+
+class Bank {
+    private List<Account> accounts = new ArrayList<>();
+
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+    public void showBalances() {
+        for (Account account : accounts) {
+            System.out.println("Account balance: " + account.viewBalance());
+        }
+    }
+}
+
+public class BankTest {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Account savings = new SavingsAccount(1000);
+        Account current = new CurrentAccount(1500);
+
+        savings.deposit(500);
+        current.withdraw(200);
+        bank.addAccount(savings);
+        bank.addAccount(current);
+        
+        bank.showBalances();
+    }
+}
+    </code></pre>
+
+    <h2>5. Resizable Interface and Rectangle Class</h2>
+    <pre><code>
+interface Resizable {
+    void resizeWidth(int width);
+    void resizeHeight(int height);
+}
+
+class Rectangle implements Resizable {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void resizeWidth(int width) {
+        this.width = width;
+    }
+
+    public void resizeHeight(int height) {
+        this.height = height;
+    }
+
+    public void display() {
+        System.out.println("Rectangle width: " + width + ", height: " + height);
+    }
+}
+
+public class ResizableTest {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(10, 20);
+        rectangle.display();
+        rectangle.resizeWidth(15);
+        rectangle.resizeHeight(25);
+        rectangle.display();
+    }
+}
+    </code></pre>
+
+    <h2>6. Drawable Interface and Shape Classes</h2>
+    <pre><code>
+interface Drawable {
+    void draw();
+}
+
+class Circle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+class Rectangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+class Triangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing Triangle");
+    }
+}
+
+public class DrawableTest {
+    public static void main(String[] args) {
+        Drawable circle = new Circle();
+        Drawable rectangle = new Rectangle();
+        Drawable triangle = new Triangle();
+
+        circle.draw();
+        rectangle.draw();
+        triangle.draw();
+    }
+}
+    </code></pre>
+
+    <h2>7. Sortable Interface and Sorting Classes</h2>
+    <pre><code>
+interface Sortable {
+    void sort(int[] array);
+}
+
+class BubbleSort implements Sortable {
+    public void sort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
+class SelectionSort implements Sortable {
+    public void sort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
+        }
+    }
+}
+
+public class SortableTest {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 8, 1, 3};
+
+        Sortable bubbleSort = new BubbleSort();
+        bubbleSort.sort(array);
+        System.out.println("Sorted array using Bubble Sort: " + java.util.Arrays.toString(array));
+
+        int[] array2 = {5, 2, 8, 1, 3};
+        Sortable selectionSort = new SelectionSort();
+        selectionSort.sort(array2);
+        System.out.println("Sorted array using Selection Sort: " + java.util.Arrays.toString(array2));
+    }
+}
+    </code></pre>
+
+    <h2>8. Playable Interface and Sports Classes</h2>
+    <pre><code>
+interface Playable {
+    void play();
+}
+
+class Football implements Playable {
+    public void play() {
+        System.out.println("Playing Football");
+    }
+}
+
+class Volleyball implements Playable {
+    public void play() {
+        System.out.println("Playing Volleyball");
+    }
+}
+
+class Basketball implements Playable {
+    public void play() {
+        System.out.println("Playing Basketball");
+    }
+}
+
+public class PlayableTest {
+    public static void main(String[] args) {
+        Playable football = new Football();
+        Playable volleyball = new Volleyball();
+        Playable basketball = new Basketball();
+
+        football.play();
+        volleyball.play();
+        basketball.play();
+    }
+}
+    </code></pre>
+
+    <h2>9. Searchable Interface and Implementing Classes</h2>
+    <pre><code>
+interface Searchable {
+    void search(String keyword);
+}
+
+class Document implements Searchable {
+    public void search(String keyword) {
+        System.out.println("Searching in document: " + keyword);
+    }
+}
+
+class WebPage implements Searchable {
+    public void search(String keyword) {
+        System.out.println("Searching on webpage: " + keyword);
+    }
+}
+
+public class SearchableTest {
+    public static void main(String[] args) {
+        Searchable doc = new Document();
+        Searchable page = new WebPage();
+
+        doc.search("Java");
+        page.search("HTML");
+    }
+}
+    </code></pre>
+
+    <h2>10. Encryptable Interface and Implementing Classes</h2>
+    <pre><code>
+interface Encryptable {
+    String encrypt(String data);
+    String decrypt(String encryptedData);
+}
+
+class AES implements Encryptable {
+    public String encrypt(String data) {
+        return "AES Encrypted: " + data;
+    }
+
+    public String decrypt(String encryptedData) {
+        return "AES Decrypted: " + encryptedData;
+    }
+}
+
+class RSA implements Encryptable {
+    public String encrypt(String data) {
+        return "RSA Encrypted: " + data;
+    }
+
+    public String decrypt(String encryptedData) {
+        return "RSA Decrypted: " + encryptedData;
+    }
+}
+
+public class EncryptableTest {
+    public static void main(String[] args) {
+        Encryptable aes = new AES();
+        Encryptable rsa = new RSA();
+
+        String data = "Hello, World!";
+        System.out.println(aes.encrypt(data));
+        System.out.println(rsa.encrypt(data));
+    }
+}
+    </code></pre>
+
+    <h2>11. Sortable Interface and Sorting Classes (Descending Order)</h2>
+    <pre><code>
+interface Sortable {
+    void sort(int[] array);
+}
+
+class QuickSort implements Sortable {
+    public void sort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+
+    private void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pi = partition(array, low, high);
+            quickSort(array, low, pi - 1);
+            quickSort(array, pi + 1, high);
+        }
+    }
+
+    private int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (array[j] > pivot) {
+                i++;
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+        return i + 1;
+    }
+}
+
+class MergeSort implements Sortable {
+    public void sort(int[] array) {
+        mergeSort(array, 0, array.length - 1);
+    }
+
+    private void mergeSort(int[] array, int left, int right) {
+        if (left < right) {
+            int middle = left + (right - left) / 2;
+            mergeSort(array, left, middle);
+            mergeSort(array, middle + 1, right);
+            merge(array, left, middle, right);
+        }
+    }
+
+    private void merge(int[] array, int left, int middle, int right) {
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        for (int i = 0; i < n1; i++)
+            L[i] = array[left + i];
+        for (int j = 0; j < n2; j++)
+            R[j] = array[middle + 1 + j];
+
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] > R[j]) {
+                array[k++] = L[i++];
+            } else {
+                array[k++] = R[j++];
+            }
+        }
+
+        while (i < n1) {
+            array[k++] = L[i++];
+        }
+
+        while (j < n2) {
+            array[k++] = R[j++];
+        }
+    }
+}
+
+public class SortableTest {
+    public static void main(String[] args) {
+        int[] array = {5, 2, 8, 1, 3};
+
+        Sortable quickSort = new QuickSort();
+        quickSort.sort(array);
+        System.out.println("Sorted array using Quick Sort: " + java.util.Arrays.toString(array));
+
+        int[] array2 = {5, 2, 8, 1, 3};
+        Sortable mergeSort = new MergeSort();
+        mergeSort.sort(array2);
+        System.out.println("Sorted array using Merge Sort: " + java.util.Arrays.toString(array2));
+    }
+}
+    </code></pre>
+
+</body>
+</html>

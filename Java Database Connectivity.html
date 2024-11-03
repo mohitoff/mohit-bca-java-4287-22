@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java DataBase Connectivity</title>
+</head>
+<body>
+    <h1>Java DataBase Connectivity</h1>
+
+    <h2>1. Create the connection with MySQL Database and manage the driver</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MySQLConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Connection established successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>2. Create the table in the database from Java API</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class CreateTable {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS Users (" +
+                "id INT PRIMARY KEY AUTO_INCREMENT, " +
+                "name VARCHAR(100), " +
+                "email VARCHAR(100))";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            statement.execute(createTableSQL);
+            System.out.println("Table created successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>3. Insert the row in the table in the database from Java API</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class InsertRow {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String insertSQL = "INSERT INTO Users (name, email) VALUES (?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+            preparedStatement.setString(1, "John Doe");
+            preparedStatement.setString(2, "john.doe@example.com");
+            preparedStatement.executeUpdate();
+            System.out.println("Row inserted successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>4. Update the row in the table in the database from Java API</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class UpdateRow {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String updateSQL = "UPDATE Users SET email = ? WHERE name = ?";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+            preparedStatement.setString(1, "john.new@example.com");
+            preparedStatement.setString(2, "John Doe");
+            preparedStatement.executeUpdate();
+            System.out.println("Row updated successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>5. Delete the row in the table in the database from Java API</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class DeleteRow {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String deleteSQL = "DELETE FROM Users WHERE name = ?";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
+            preparedStatement.setString(1, "John Doe");
+            preparedStatement.executeUpdate();
+            System.out.println("Row deleted successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>6. Select multiple rows from the database table in Java API and show the result on the screen</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SelectRows {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String selectSQL = "SELECT * FROM Users";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(selectSQL)) {
+            while (resultSet.next()) {
+                System.out.println("ID: " + resultSet.getInt("id") +
+                        ", Name: " + resultSet.getString("name") +
+                        ", Email: " + resultSet.getString("email"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>7. Create a Scrollable Readonly Resultset and ask the row number from the user and display that row on the screen</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class ScrollableReadonlyResultSet {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        String selectSQL = "SELECT * FROM Users";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+             ResultSet resultSet = statement.executeQuery(selectSQL);
+             Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter row number: ");
+            int rowNumber = scanner.nextInt();
+
+            if (resultSet.absolute(rowNumber)) {
+                System.out.println("ID: " + resultSet.getInt("id") +
+                        ", Name: " + resultSet.getString("name") +
+                        ", Email: " + resultSet.getString("email"));
+            } else {
+                System.out.println("Row not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>8. Create a Scrollable Updateable Resultset and insert a new row, update an existing row and delete the row from Resultset and also the changes should be made to the database</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class ScrollableUpdateableResultSet {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM Users")) {
+            Scanner scanner = new Scanner(System.in);
+
+            // Insert a new row
+            System.out.print("Enter name for new user: ");
+            String newName = scanner.nextLine();
+            System.out.print("Enter email for new user: ");
+            String newEmail = scanner.nextLine();
+            resultSet.moveToInsertRow();
+            resultSet.updateString("name", newName);
+            resultSet.updateString("email", newEmail);
+            resultSet.insertRow();
+            System.out.println("New user inserted.");
+
+            // Update an existing row
+            System.out.print("Enter ID of user to update: ");
+            int updateId = scanner.nextInt();
+            resultSet.beforeFirst();
+            while (resultSet.next()) {
+                if (resultSet.getInt("id") == updateId) {
+                    System.out.print("Enter new email for user: ");
+                    String updatedEmail = scanner.next();
+                    resultSet.updateString("email", updatedEmail);
+                    resultSet.updateRow();
+                    System.out.println("User updated.");
+                    break;
+                }
+            }
+
+            // Delete a row
+            System.out.print("Enter ID of user to delete: ");
+            int deleteId = scanner.nextInt();
+            resultSet.beforeFirst();
+            while (resultSet.next()) {
+                if (resultSet.getInt("id") == deleteId) {
+                    resultSet.deleteRow();
+                    System.out.println("User deleted.");
+                    break;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    </code></pre>
+
+    <h2>9. Create a Java Program to show, insert, update, delete of the table in Java API through PreparedStatement</h2>
+    <pre><code>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class CRUDUsingPreparedStatement {
+    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+            while (true) {
+                System.out.println("\nChoose an option: ");
+                System.out.println("1. Show all users");
+                System.out.println("2. Insert user");
+                System.out.println("3. Update user");
+                System.out.println("4. Delete user");
+                System.out.println("5. Exit");
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        showUsers(connection);
+                        break;
+                    case 2:
+                        insertUser(connection, scanner);
+                        break;
+                    case 3:
+                        updateUser(connection, scanner);
+                        break;
+                    case 4:
+                        deleteUser(connection, scanner);
+                        break;
+                    case 5:
+                        return;
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void showUsers(Connection connection) throws SQLException {
+        String selectSQL = "SELECT * FROM Users";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                System.out.println("ID: " + resultSet.getInt("id") +
+                        ", Name: " + resultSet.getString("name") +
+                        ", Email: " + resultSet.getString("email"));
+            }
+        }
+    }
+
+    private static void insertUser(Connection connection, Scanner scanner) throws SQLException {
+        String insertSQL = "INSERT INTO Users (name, email) VALUES (?, ?)";
+        System.out.print("Enter name: ");
+        String name = scanner.next();
+        System.out.print("Enter email: ");
+        String email = scanner.next();
+        
+        try (PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            preparedStatement.executeUpdate();
+            System.out.println("User inserted.");
+        }
+    }
+
+    private static void updateUser(Connection connection, Scanner scanner) throws SQLException {
+        String updateSQL = "UPDATE Users SET email = ? WHERE name = ?";
+        System.out.print("Enter name of user to update: ");
+        String name = scanner.next();
+        System.out.print("Enter new email: ");
+        String email = scanner.next();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, name);
+            preparedStatement.executeUpdate();
+            System.out.println("User updated.");
+        }
+    }
+
+    private static void deleteUser(Connection connection, Scanner scanner) throws SQLException {
+        String deleteSQL = "DELETE FROM Users WHERE name = ?";
+        System.out.print("Enter name of user to delete: ");
+        String name = scanner.next();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.executeUpdate();
+            System.out.println("User deleted.");
+        }
+    }
+}
+    </code></pre>
+
+</body>
+</html>

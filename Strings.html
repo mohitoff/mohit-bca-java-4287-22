@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java String Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Java String Programs</h1>
+
+    <h2>1. Check if a String Contains Only Digits</h2>
+    <pre>
+public class CheckDigits {
+    public static void main(String[] args) {
+        String input = "12345";
+        boolean isDigit = input.chars().allMatch(Character::isDigit);
+
+        System.out.println("Contains only digits: " + isDigit);
+    }
+}
+    </pre>
+
+    <h2>2. Deep Copy for String</h2>
+    <pre>
+public class DeepCopyString {
+    public static void main(String[] args) {
+        String original = "Hello, World!";
+        String copy = new String(original); // Creating a deep copy
+
+        System.out.println("Original: " + original);
+        System.out.println("Copy: " + copy);
+    }
+}
+    </pre>
+
+    <h2>3. Prove String is Immutable Programmatically</h2>
+    <pre>
+public class ProveStringImmutable {
+    public static void main(String[] args) {
+        String original = "Hello";
+        String modified = original.concat(", World!");
+
+        System.out.println("Original String: " + original);
+        System.out.println("Modified String: " + modified);
+    }
+}
+    </pre>
+
+    <h2>4. Remove All Occurrences of a Given Character from Input String</h2>
+    <pre>
+public class RemoveCharacter {
+    public static void main(String[] args) {
+        String input = "banana";
+        char charToRemove = 'a';
+        String result = input.replace(Character.toString(charToRemove), "");
+
+        System.out.println("Resulting String: " + result);
+    }
+}
+    </pre>
+
+    <h2>5. Append a String Using StringBuffer Class</h2>
+    <pre>
+public class AppendString {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("Hello");
+        sb.append(", World!");
+
+        System.out.println("Appended String: " + sb.toString());
+    }
+}
+    </pre>
+
+    <h2>6. Insert a String Using StringBuffer Class</h2>
+    <pre>
+public class InsertString {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("World!");
+        sb.insert(0, "Hello, ");
+
+        System.out.println("Inserted String: " + sb.toString());
+    }
+}
+    </pre>
+
+    <h2>7. Add Characters to a String</h2>
+    <pre>
+public class AddCharacters {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+        sb.append(' ');
+        sb.append('W');
+        sb.append('o');
+        sb.append('r');
+        sb.append('l');
+        sb.append('d');
+
+        System.out.println("Resulting String: " + sb.toString());
+    }
+}
+    </pre>
+
+    <h2>8. Add Characters to a String (Different Example)</h2>
+    <pre>
+public class AddCharactersAnother {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Java");
+        sb.append(' ');
+        sb.append('i');
+        sb.append('s');
+        sb.append(' ');
+        sb.append('fun');
+
+        System.out.println("Resulting String: " + sb.toString());
+    }
+}
+    </pre>
+
+    <h2>9. Check Anagram</h2>
+    <pre>
+import java.util.Arrays;
+
+public class CheckAnagram {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        boolean isAnagram = Arrays.equals(arr1, arr2);
+
+        System.out.println("Are the strings anagrams? " + isAnagram);
+    }
+}
+    </pre>
+</body>
+</html>

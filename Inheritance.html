@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Inheritance Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #2C3E50;
+        }
+        pre {
+            background-color: #ECF0F1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Java Inheritance Programs</h1>
+
+<h2>1. Animal Class with makeSound() Method</h2>
+<pre><code>
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat barks");
+    }
+
+    public static void main(String[] args) {
+        Animal animal = new Cat();
+        animal.makeSound();
+    }
+}
+</code></pre>
+
+<h2>2. Vehicle Class with drive() Method</h2>
+<pre><code>
+class Vehicle {
+    void drive() {
+        System.out.println("Driving a vehicle");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void drive() {
+        System.out.println("Repairing a car");
+    }
+
+    public static void main(String[] args) {
+        Vehicle vehicle = new Car();
+        vehicle.drive();
+    }
+}
+</code></pre>
+
+<h2>3. Shape Class with getArea() Method</h2>
+<pre><code>
+class Shape {
+    double getArea() {
+        return 0;
+    }
+}
+
+class Rectangle extends Shape {
+    double width;
+    double height;
+
+    Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    double getArea() {
+        return width * height;
+    }
+
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle(5, 10);
+        System.out.println("Area of Rectangle: " + rect.getArea());
+    }
+}
+</code></pre>
+
+<h2>4. Employee Class with work() and getSalary() Methods</h2>
+<pre><code>
+class Employee {
+    void work() {
+        System.out.println("Employee is working");
+    }
+
+    double getSalary() {
+        return 50000;
+    }
+}
+
+class HRManager extends Employee {
+    @Override
+    void work() {
+        System.out.println("HR Manager is managing recruitment");
+    }
+
+    void addEmployee() {
+        System.out.println("Adding a new employee");
+    }
+
+    public static void main(String[] args) {
+        HRManager hr = new HRManager();
+        hr.work();
+        hr.addEmployee();
+    }
+}
+</code></pre>
+
+<h2>5. BankAccount Class with deposit() and withdraw() Methods</h2>
+<pre><code>
+class BankAccount {
+    double balance;
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    @Override
+    void withdraw(double amount) {
+        if (balance - amount >= 100) {
+            super.withdraw(amount);
+        } else {
+            System.out.println("Cannot withdraw, balance must remain above 100");
+        }
+    }
+
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount();
+        sa.deposit(200);
+        sa.withdraw(50);
+        sa.withdraw(150);
+    }
+}
+</code></pre>
+
+<h2>6. Animal Class with move() Method</h2>
+<pre><code>
+class Animal {
+    void move() {
+        System.out.println("Animal moves");
+    }
+}
+
+class Cheetah extends Animal {
+    @Override
+    void move() {
+        System.out.println("Cheetah runs fast");
+    }
+
+    public static void main(String[] args) {
+        Animal cheetah = new Cheetah();
+        cheetah.move();
+    }
+}
+</code></pre>
+
+<h2>7. Person Class with getFirstName() and getLastName() Methods</h2>
+<pre><code>
+class Person {
+    String firstName;
+    String lastName;
+
+    String getFirstName() {
+        return firstName;
+    }
+
+    String getLastName() {
+        return lastName;
+    }
+}
+
+class Employee extends Person {
+    String jobTitle;
+
+    @Override
+    String getLastName() {
+        return super.getLastName() + " - " + jobTitle;
+    }
+
+    String getEmployeeId() {
+        return "EMP123";
+    }
+
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        emp.firstName = "John";
+        emp.lastName = "Doe";
+        emp.jobTitle = "Developer";
+        System.out.println("Employee ID: " + emp.getEmployeeId());
+        System.out.println("Last Name: " + emp.getLastName());
+    }
+}
+</code></pre>
+
+<h2>8. Shape Class with getPerimeter() and getArea() Methods</h2>
+<pre><code>
+class Shape {
+    double getPerimeter() {
+        return 0;
+    }
+
+    double getArea() {
+        return 0;
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        System.out.println("Area of Circle: " + circle.getArea());
+        System.out.println("Perimeter of Circle: " + circle.getPerimeter());
+    }
+}
+</code></pre>
+
+<h2>9. Vehicle Class Hierarchy</h2>
+<pre><code>
+class Vehicle {
+    String make;
+    String model;
+    int year;
+    String fuelType;
+
+    Vehicle(String make, String model, int year, String fuelType) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+    }
+
+    void displayInfo() {
+        System.out.println("Make: " + make + ", Model: " + model + ", Year: " + year + ", Fuel Type: " + fuelType);
+    }
+}
+
+class Truck extends Vehicle {
+    Truck(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+}
+
+class Car extends Vehicle {
+    Car(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+}
+
+class Motorcycle extends Vehicle {
+    Motorcycle(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+}
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        Vehicle truck = new Truck("Ford", "F-150", 2020, "Gasoline");
+        Vehicle car = new Car("Toyota", "Camry", 2021, "Hybrid");
+        Vehicle motorcycle = new Motorcycle("Harley-Davidson", "Street 750", 2019, "Gasoline");
+
+        truck.displayInfo();
+        car.displayInfo();
+        motorcycle.displayInfo();
+    }
+}
+</code></pre>
+
+<h2>10. Employee Class Hierarchy</h2>
+<pre><code>
+class Employee {
+    String name;
+    String address;
+    double salary;
+
+    Employee(String name, String address, double salary) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + name + ", Address: " + address + ", Salary: " + salary);
+    }
+
+    double calculateBonus() {
+        return salary * 0.10;
+    }
+}
+
+class Manager extends Employee {
+    Manager(String name, String address, double salary) {
+        super(name, address, salary);
+    }
+
+    @Override
+    double calculateBonus() {
+        return salary * 0.15;
+    }
+}
+
+class Developer extends Employee {
+    Developer(String name, String address, double salary) {
+        super(name, address, salary);
+    }
+}
+
+class Programmer extends Employee {
+    Programmer(String name, String address, double salary) {
+        super(name, address, salary);
+    }
+
+    void manageProjects() {
+        System.out.println(name + " is managing projects.");
+    }
+}
+
+public class EmployeeTest {
+    public static void main(String[] args) {
+        Manager manager = new Manager("Alice", "123 Main St", 80000);
+        Developer developer = new Developer("Bob", "456 Park Ave", 60000);
+        Programmer programmer = new Programmer("Charlie", "789 Elm St", 50000);
+
+        manager.displayInfo();
+        System.out.println("Bonus: " + manager.calculateBonus());
+        
+        developer.displayInfo();
+        programmer.manageProjects();
+    }
+}
+</code></pre>
+
+<h2>11. Example of super Keyword</h2>
+<pre><code>
+class Parent {
+    void display() {
+        System.out.println("This is the parent class.");
+    }
+}
+
+class Child extends Parent {
+    void display() {
+        super.display();
+        System.out.println("This is the child class.");
+    }
+
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.display();
+    }
+}
+</code></pre>
+
+<h2>12. Example of super Function</h2>
+<pre><code>
+class Parent {
+    Parent() {
+        System.out.println("Parent constructor called");
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        super(); // calls Parent constructor
+        System.out.println("Child constructor called");
+    }
+
+    public static void main(String[] args) {
+        Child child = new Child();
+    }
+}
+</code></pre>
+
+<h2>13. Example of Method Overriding</h2>
+<pre><code>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.sound();
+    }
+}
+</code></pre>
+
+<h2>14. Example of Dynamic Method Dispatch</h2>
+<pre><code>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        Animal animal = new Cat();
+        animal.sound(); // Dynamic method dispatch
+    }
+}
+</code></pre>
+
+<h2>15. Abstract Class Animal with sound() Method</h2>
+<pre><code>
+abstract class Animal {
+    abstract void sound();
+}
+
+class Lion extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Lion roars");
+    }
+}
+
+class Tiger extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Tiger growls");
+    }
+
+    public static void main(String[] args) {
+        Animal lion = new Lion();
+        Animal tiger = new Tiger();
+        lion.sound();
+        tiger.sound();
+    }
+}
+</code></pre>
+
+<h2>16. Abstract Class Shape with calculateArea() and calculatePerimeter() Methods</h2>
+<pre><code>
+abstract class Shape {
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Triangle extends Shape {
+    double base;
+    double height;
+    double side1;
+    double side2;
+
+    Triangle(double base, double height, double side1, double side2) {
+        this.base = base;
+        this.height = height;
+        this.side1 = side1;
+        this.side2 = side2;
+    }
+
+    @Override
+    double calculateArea() {
+        return 0.5 * base * height;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return base + side1 + side2;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        Triangle triangle = new Triangle(5, 10, 7, 8);
+
+        System.out.println("Circle Area: " + circle.calculateArea());
+        System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
+        System.out.println("Triangle Area: " + triangle.calculateArea());
+        System.out.println("Triangle Perimeter: " + triangle.calculatePerimeter());
+    }
+}
+</code></pre>
+
+<h2>17. Abstract Class BankAccount with deposit() and withdraw() Methods</h2>
+<pre><code>
+abstract class BankAccount {
+    abstract void deposit(double amount);
+    abstract void withdraw(double amount);
+}
+
+class SavingsAccount extends BankAccount {
+    double balance = 0;
+
+    @Override
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    @Override
+    void withdraw(double amount) {
+        balance -= amount;
+        System.out.println("Withdrawn: " + amount);
+    }
+
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount();
+        sa.deposit(1000);
+        sa.withdraw(200);
+    }
+}
+
+class CurrentAccount extends BankAccount {
+    double balance = 0;
+
+    @Override
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    @Override
+    void withdraw(double amount) {
+        balance -= amount;
+        System.out.println("Withdrawn: " + amount);
+    }
+}
+</code></pre>
+
+<h2>18. Abstract Class Animal with eat() and sleep() Methods</h2>
+<pre><code>
+abstract class Animal {
+    abstract void eat();
+    abstract void sleep();
+}
+
+class Lion extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Lion eats meat");
+    }
+
+    @Override
+    void sleep() {
+        System.out.println("Lion sleeps at night");
+    }
+}
+
+class Tiger extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Tiger hunts and eats");
+    }
+
+    @Override
+    void sleep() {
+        System.out.println("Tiger sleeps during the day");
+    }
+
+    public static void main(String[] args) {
+        Animal lion = new Lion();
+        Animal tiger = new Tiger();
+        lion.eat();
+        lion.sleep();
+        tiger.eat();
+        tiger.sleep();
+    }
+}
+</code></pre>
+
+<h2>19. Abstract Class Employee with calculateSalary() and displayInfo() Methods</h2>
+<pre><code>
+abstract class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    abstract double calculateSalary();
+    abstract void displayInfo();
+}
+
+class Manager extends Employee {
+    Manager(String name, double salary) {
+        super(name, salary);
+    }
+
+    @Override
+    double calculateSalary() {
+        return salary + 2000; // Manager bonus
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("Manager: " + name + ", Salary: " + calculateSalary());
+    }
+}
+
+class Programmer extends Employee {
+    Programmer(String name, double salary) {
+        super(name, salary);
+    }
+
+    @Override
+    double calculateSalary() {
+        return salary + 1000; // Programmer bonus
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("Programmer: " + name + ", Salary: " + calculateSalary());
+    }
+
+    public static void main(String[] args) {
+        Employee emp1 = new Manager("Alice", 80000);
+        Employee emp2 = new Programmer("Bob", 60000);
+        
+        emp1.displayInfo();
+        emp2.displayInfo();
+    }
+}
+</code></pre>
+
+<h2>20. Abstract Class Shape3D with calculateVolume() and calculateSurfaceArea() Methods</h2>
+<pre><code>
+abstract class Shape3D {
+    abstract double calculateVolume();
+    abstract double calculateSurfaceArea();
+}
+
+class Sphere extends Shape3D {
+    double radius;
+
+    Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateVolume() {
+        return (4 / 3.0) * Math.PI * radius * radius * radius;
+    }
+
+    @Override
+    double calculateSurfaceArea() {
+        return 4 * Math.PI * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        Sphere sphere = new Sphere(5);
+        System.out.println("Sphere Volume: " + sphere.calculateVolume());
+        System.out.println("Sphere Surface Area: " + sphere.calculateSurfaceArea());
+    }
+}
+
+class Cube extends Shape3D {
+    double side;
+
+    Cube(double side) {
+        this.side = side;
+    }
+
+    @Override
+    double calculateVolume() {
+        return side * side * side;
+    }
+
+    @Override
+    double calculateSurfaceArea() {
+        return 6 * side * side;
+    }
+}
+</code></pre>
+
+<h2>21. Abstract Class Vehicle with startEngine() and stopEngine() Methods</h2>
+<pre><code>
+abstract class Vehicle {
+    abstract void startEngine();
+    abstract void stopEngine();
+}
+
+class Car extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Car engine started");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Car engine stopped");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Motorcycle engine started");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Motorcycle engine stopped");
+    }
+
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        Vehicle motorcycle = new Motorcycle();
+        
+        car.startEngine();
+        car.stopEngine();
+        motorcycle.startEngine();
+        motorcycle.stopEngine();
+    }
+}
+</code></pre>
+
+<h2>22. Abstract Class Person with eat() and exercise() Methods</h2>
+<pre><code>
+abstract class Person {
+    abstract void eat();
+    abstract void exercise();
+}
+
+class Athlete extends Person {
+    @Override
+    void eat() {
+        System.out.println("Athlete eats healthy food");
+    }
+
+    @Override
+    void exercise() {
+        System.out.println("Athlete exercises daily");
+    }
+}
+
+class LazyPerson extends Person {
+    @Override
+    void eat() {
+        System.out.println("Lazy person eats junk food");
+    }
+
+    @Override
+    void exercise() {
+        System.out.println("Lazy person rarely exercises");
+    }
+
+    public static void main(String[] args) {
+        Person athlete = new Athlete();
+        Person lazyPerson = new LazyPerson();
+        
+        athlete.eat();
+        athlete.exercise();
+        lazyPerson.eat();
+        lazyPerson.exercise();
+    }
+}
+</code></pre>
+
+<h2>23. Abstract Class Instrument with play() and tune() Methods</h2>
+<pre><code>
+abstract class Instrument {
+    abstract void play();
+    abstract void tune();
+}
+
+class Glockenspiel extends Instrument {
+    @Override
+    void play() {
+        System.out.println("Glockenspiel is playing");
+    }
+
+    @Override
+    void tune() {
+        System.out.println("Tuning the Glockenspiel");
+    }
+}
+
+class Violin extends Instrument {
+    @Override
+    void play() {
+        System.out.println("Violin is playing");
+    }
+
+    @Override
+    void tune() {
+        System.out.println("Tuning the Violin");
+    }
+
+    public static void main(String[] args) {
+        Instrument glockenspiel = new Glockenspiel();
+        Instrument violin = new Violin();
+        
+        glockenspiel.play();
+        glockenspiel.tune();
+        violin.play();
+        violin.tune();
+    }
+}
+</code></pre>
+
+<h2>24. Abstract Class Shape2D with draw() and resize() Methods</h2>
+<pre><code>
+abstract class Shape2D {
+    abstract void draw();
+    abstract void resize(double scale);
+}
+
+class Rectangle extends Shape2D {
+    double length;
+    double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+
+    @Override
+    void resize(double scale) {
+        length *= scale;
+        width *= scale;
+        System.out.println("Resized Rectangle to length: " + length + ", width: " + width);
+    }
+
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(4, 2);
+        rectangle.draw();
+        rectangle.resize(2);
+    }
+}
+
+class Circle extends Shape2D {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+    @Override
+    void resize(double scale) {
+        radius *= scale;
+        System.out.println("Resized Circle to radius: " + radius);
+    }
+}
+</code></pre>
+
+<h2>25. Abstract Class Bird with fly() and makeSound() Methods</h2>
+<pre><code>
+abstract class Bird {
+    abstract void fly();
+    abstract void makeSound();
+}
+
+class Eagle extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Eagle soars high");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Eagle screeches");
+    }
+}
+
+class Hawk extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Hawk glides gracefully");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Hawk screams");
+    }
+
+    public static void main(String[] args) {
+        Bird eagle = new Eagle();
+        Bird hawk = new Hawk();
+        
+        eagle.fly();
+        eagle.makeSound();
+        hawk.fly();
+        hawk.makeSound();
+    }
+}
+</code></pre>
+
+<h2>26. Abstract Class GeometricShape with area() and perimeter() Methods</h2>
+<pre><code>
+abstract class GeometricShape {
+    abstract double area();
+    abstract double perimeter();
+}
+
+class Triangle extends GeometricShape {
+    double base;
+    double height;
+
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    double area() {
+        return 0.5 * base * height;
+    }
+
+    @Override
+    double perimeter() {
+        return base + 2 * height; // Simple approximation
+    }
+
+    public static void main(String[] args) {
+        Triangle triangle = new Triangle(4, 5);
+        System.out.println("Triangle Area: " + triangle.area());
+        System.out.println("Triangle Perimeter: " + triangle.perimeter());
+    }
+}
+
+class Square extends GeometricShape {
+    double side;
+
+    Square(double side) {
+        this.side = side;
+    }
+
+    @Override
+    double area() {
+        return side * side;
+    }
+
+    @Override
+    double perimeter() {
+        return 4 * side;
+    }
+}
+</code></pre>
+
+</body>
+</html>

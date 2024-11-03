@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 1D Array Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Java 1D Array Programs</h1>
+
+    <h2>1. Copy All Elements of One Array into Another Array</h2>
+    <pre>
+public class CopyArray {
+    public static void main(String[] args) {
+        int[] source = {1, 2, 3, 4, 5};
+        int[] destination = new int[source.length];
+
+        for (int i = 0; i < source.length; i++) {
+            destination[i] = source[i];
+        }
+
+        System.out.print("Copied Array: ");
+        for (int value : destination) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>2. Find the Frequency of Each Element in the Array</h2>
+    <pre>
+import java.util.HashMap;
+
+public class FrequencyOfElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 2, 3, 1, 4, 1};
+        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+
+        for (int num : arr) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        System.out.println("Frequency of elements: " + frequencyMap);
+    }
+}
+    </pre>
+
+    <h2>3. Left Rotate the Elements of an Array</h2>
+    <pre>
+public class LeftRotateArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int n = arr.length;
+        int temp = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            arr[i - 1] = arr[i];
+        }
+        arr[n - 1] = temp;
+
+        System.out.print("Left Rotated Array: ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>4. Print Duplicate Elements of an Array</h2>
+    <pre>
+import java.util.HashSet;
+
+public class DuplicateElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 5, 1};
+        HashSet<Integer> seen = new HashSet<>();
+        HashSet<Integer> duplicates = new HashSet<>();
+
+        for (int num : arr) {
+            if (!seen.add(num)) {
+                duplicates.add(num);
+            }
+        }
+
+        System.out.println("Duplicate elements: " + duplicates);
+    }
+}
+    </pre>
+
+    <h2>5. Print the Elements of an Array</h2>
+    <pre>
+public class PrintArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        
+        System.out.print("Array Elements: ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>6. Print the Elements of an Array in Reverse Order</h2>
+    <pre>
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.print("Array in Reverse Order: ");
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>7. Print the Elements of an Array Present on Even Position</h2>
+    <pre>
+public class EvenPositionElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.print("Elements at Even Positions: ");
+        for (int i = 0; i < arr.length; i += 2) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>8. Print the Elements of an Array Present on Odd Position</h2>
+    <pre>
+public class OddPositionElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.print("Elements at Odd Positions: ");
+        for (int i = 1; i < arr.length; i += 2) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>9. Print the Largest Element in an Array</h2>
+    <pre>
+public class LargestElement {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int largest = arr[0];
+
+        for (int value : arr) {
+            if (value > largest) {
+                largest = value;
+            }
+        }
+
+        System.out.println("Largest Element: " + largest);
+    }
+}
+    </pre>
+
+    <h2>10. Print the Smallest Element in an Array</h2>
+    <pre>
+public class SmallestElement {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int smallest = arr[0];
+
+        for (int value : arr) {
+            if (value < smallest) {
+                smallest = value;
+            }
+        }
+
+        System.out.println("Smallest Element: " + smallest);
+    }
+}
+    </pre>
+
+    <h2>11. Print the Number of Elements Present in an Array</h2>
+    <pre>
+public class NumberOfElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.println("Number of Elements: " + arr.length);
+    }
+}
+    </pre>
+
+    <h2>12. Print the Sum of All the Items of the Array</h2>
+    <pre>
+public class SumOfArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 0;
+
+        for (int value : arr) {
+            sum += value;
+        }
+
+        System.out.println("Sum of Array Elements: " + sum);
+    }
+}
+    </pre>
+
+    <h2>13. Right Rotate the Elements of an Array</h2>
+    <pre>
+public class RightRotateArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int n = arr.length;
+        int temp = arr[n - 1];
+
+        for (int i = n - 1; i > 0; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = temp;
+
+        System.out.print("Right Rotated Array: ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>14. Sort the Elements of an Array in Ascending Order</h2>
+    <pre>
+import java.util.Arrays;
+
+public class SortArrayAscending {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 2, 4, 1};
+
+        Arrays.sort(arr);
+
+        System.out.print("Sorted Array (Ascending): ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>15. Sort the Elements of an Array in Descending Order</h2>
+    <pre>
+import java.util.Arrays;
+import java.util.Collections;
+
+public class SortArrayDescending {
+    public static void main(String[] args) {
+        Integer[] arr = {5, 3, 2, 4, 1};
+
+        Arrays.sort(arr, Collections.reverseOrder());
+
+        System.out.print("Sorted Array (Descending): ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>16. Find 3rd Largest Number in an Array</h2>
+    <pre>
+import java.util.Arrays;
+
+public class ThirdLargest {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+        Arrays.sort(arr);
+
+        if (arr.length >= 3) {
+            System.out.println("3rd Largest Number: " + arr[arr.length - 3]);
+        } else {
+            System.out.println("Array has less than 3 elements.");
+        }
+    }
+}
+    </pre>
+
+    <h2>17. Find 2nd Largest Number in an Array</h2>
+    <pre>
+import java.util.Arrays;
+
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+        Arrays.sort(arr);
+
+        if (arr.length >= 2) {
+            System.out.println("2nd Largest Number: " + arr[arr.length - 2]);
+        } else {
+            System.out.println("Array has less than 2 elements.");
+        }
+    }
+}
+    </pre>
+
+    <h2>18. Find Largest Number in an Array</h2>
+    <pre>
+public class LargestNumber {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+        int largest = arr[0];
+
+        for (int value : arr) {
+            if (value > largest) {
+                largest = value;
+            }
+        }
+
+        System.out.println("Largest Number: " + largest);
+    }
+}
+    </pre>
+
+    <h2>19. Find 2nd Smallest Number in an Array</h2>
+    <pre>
+import java.util.Arrays;
+
+public class SecondSmallest {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+        Arrays.sort(arr);
+
+        if (arr.length >= 2) {
+            System.out.println("2nd Smallest Number: " + arr[1]);
+        } else {
+            System.out.println("Array has less than 2 elements.");
+        }
+    }
+}
+    </pre>
+
+    <h2>20. Find Smallest Number in an Array</h2>
+    <pre>
+public class SmallestNumber {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+        int smallest = arr[0];
+
+        for (int value : arr) {
+            if (value < smallest) {
+                smallest = value;
+            }
+        }
+
+        System.out.println("Smallest Number: " + smallest);
+    }
+}
+    </pre>
+
+    <h2>21. Remove Duplicate Elements in an Array</h2>
+    <pre>
+import java.util.Arrays;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 2, 3, 4, 4, 5};
+        arr = Arrays.stream(arr).distinct().toArray();
+
+        System.out.print("Array after Removing Duplicates: ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+
+    <h2>22. Print Odd and Even Numbers from an Array</h2>
+    <pre>
+public class OddEvenNumbers {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.print("Odd Numbers: ");
+        for (int value : arr) {
+            if (value % 2 != 0) {
+                System.out.print(value + " ");
+            }
+        }
+
+        System.out.print("\nEven Numbers: ");
+        for (int value : arr) {
+            if (value % 2 == 0) {
+                System.out.print(value + " ");
+            }
+        }
+    }
+}
+    </pre>
+
+    <h2>23. Sort an Array in Java</h2>
+    <pre>
+import java.util.Arrays;
+
+public class SortArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 4, 1, 2};
+
+        Arrays.sort(arr);
+
+        System.out.print("Sorted Array: ");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+    }
+}
+    </pre>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        h1, h2 {
+            color: #004d7a;
+        }
+        pre {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Java Two Dimensional Programs</h1>
+
+    <h2>1. Enter the Matrix of Rows and Columns</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        
+        int[][] matrix = new int[rows][cols];
+        
+        System.out.println("Enter the elements of the matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("The entered matrix is:");
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>2. Program to Add Two Matrices</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+        int[][] sum = new int[rows][cols];
+        
+        System.out.println("Enter elements of first matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Enter elements of second matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        
+        System.out.println("Sum of the two matrices:");
+        for (int[] row : sum) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>3. Program to Multiply Two Matrices</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixMultiplication {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows for first matrix: ");
+        int rows1 = sc.nextInt();
+        System.out.print("Enter number of columns for first matrix (and rows for second): ");
+        int cols1 = sc.nextInt();
+        System.out.print("Enter number of columns for second matrix: ");
+        int cols2 = sc.nextInt();
+        
+        int[][] matrix1 = new int[rows1][cols1];
+        int[][] matrix2 = new int[cols1][cols2];
+        int[][] product = new int[rows1][cols2];
+        
+        System.out.println("Enter elements of first matrix:");
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Enter elements of second matrix:");
+        for (int i = 0; i < cols1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+        
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                for (int k = 0; k < cols1; k++) {
+                    product[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+        
+        System.out.println("Product of the two matrices:");
+        for (int[] row : product) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>4. Program to Subtract Two Matrices</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixSubtraction {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+        int[][] difference = new int[rows][cols];
+        
+        System.out.println("Enter elements of first matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Enter elements of second matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                difference[i][j] = matrix1[i][j] - matrix2[i][j];
+            }
+        }
+        
+        System.out.println("Difference of the two matrices:");
+        for (int[] row : difference) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>5. Program to Determine Whether Two Matrices Are Equal</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixEquality {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+        
+        System.out.println("Enter elements of first matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Enter elements of second matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+        
+        boolean equal = true;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix1[i][j] != matrix2[i][j]) {
+                    equal = false;
+                    break;
+                }
+            }
+        }
+        
+        if (equal) {
+            System.out.println("The matrices are equal.");
+        } else {
+            System.out.println("The matrices are not equal.");
+        }
+    }
+}
+    </pre>
+
+    <h2>6. Program to Display the Lower Triangular Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class LowerTriangularMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows and columns: ");
+        int n = sc.nextInt();
+        
+        int[][] matrix = new int[n][n];
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Lower triangular matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j <= i) {
+                    System.out.print(matrix[i][j] + " ");
+                } else {
+                    System.out.print("0 ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>7. Program to Display the Upper Triangular Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class UpperTriangularMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows and columns: ");
+        int n = sc.nextInt();
+        
+        int[][] matrix = new int[n][n];
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        System.out.println("Upper triangular matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j >= i) {
+                    System.out.print(matrix[i][j] + " ");
+                } else {
+                    System.out.print("0 ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>8. Program to Find the Transpose of a Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixTranspose {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+        
+        int[][] matrix = new int[rows][cols];
+        int[][] transpose = new int[cols][rows];
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+        
+        System.out.println("Transpose of the matrix:");
+        for (int[] row : transpose) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+    <h2>9. Program to Find the Determinant of a 2x2 Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class Determinant2x2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] matrix = new int[2][2];
+        
+        System.out.println("Enter elements of the 2x2 matrix:");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        int determinant = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        System.out.println("Determinant of the matrix: " + determinant);
+    }
+}
+    </pre>
+
+    <h2>10. Program to Find the Inverse of a 2x2 Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class Inverse2x2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] matrix = new int[2][2];
+        
+        System.out.println("Enter elements of the 2x2 matrix:");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        int determinant = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        
+        if (determinant != 0) {
+            double[][] inverse = new double[2][2];
+            inverse[0][0] = matrix[1][1] / (double)determinant;
+            inverse[0][1] = -matrix[0][1] / (double)determinant;
+            inverse[1][0] = -matrix[1][0] / (double)determinant;
+            inverse[1][1] = matrix[0][0] / (double)determinant;
+
+            System.out.println("Inverse of the matrix:");
+            for (double[] row : inverse) {
+                for (double element : row) {
+                    System.out.printf("%.2f ", element);
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("Inverse does not exist.");
+        }
+    }
+}
+    </pre>
+
+    <h2>11. Program to Check if a Matrix is Symmetric</h2>
+    <pre>
+import java.util.Scanner;
+
+public class SymmetricMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows and columns: ");
+        int n = sc.nextInt();
+        
+        int[][] matrix = new int[n][n];
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        boolean isSymmetric = true;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] != matrix[j][i]) {
+                    isSymmetric = false;
+                    break;
+                }
+            }
+        }
+        
+        if (isSymmetric) {
+            System.out.println("The matrix is symmetric.");
+        } else {
+            System.out.println("The matrix is not symmetric.");
+        }
+    }
+}
+    </pre>
+
+    <h2>12. Program to Find the Trace of a Matrix</h2>
+    <pre>
+import java.util.Scanner;
+
+public class MatrixTrace {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows and columns (square matrix): ");
+        int n = sc.nextInt();
+        
+        int[][] matrix = new int[n][n];
+        int trace = 0;
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+                if (i == j) {
+                    trace += matrix[i][j];
+                }
+            }
+        }
+        
+        System.out.println("Trace of the matrix: " + trace);
+    }
+}
+    </pre>
+
+    <h2>13. Program to Rotate a Matrix 90 Degrees</h2>
+    <pre>
+import java.util.Scanner;
+
+public class RotateMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the square matrix: ");
+        int n = sc.nextInt();
+        
+        int[][] matrix = new int[n][n];
+        
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        // Rotate the matrix 90 degrees clockwise
+        int[][] rotated = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                rotated[j][n - 1 - i] = matrix[i][j];
+            }
+        }
+        
+        System.out.println("Rotated matrix:");
+        for (int[] row : rotated) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+    </pre>
+
+</body>
+</html>

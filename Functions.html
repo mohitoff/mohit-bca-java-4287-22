@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Function Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #004d7a;
+        }
+        pre {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .tutorial {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Java Function Programs</h1>
+
+    <div class="tutorial">
+        <h2>1. Find the Smallest Number Among Three Numbers</h2>
+        <pre>
+public class SmallestNumber {
+    public static int findSmallest(int a, int b, int c) {
+        return Math.min(a, Math.min(b, c));
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Smallest number: " + findSmallest(10, 20, 5));
+    }
+}
+        </pre>
+        <p>This method takes three integers as parameters and returns the smallest among them using the <code>Math.min</code> method.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>2. Compute the Average of Three Numbers</h2>
+        <pre>
+public class AverageCalculator {
+    public static double computeAverage(int a, int b, int c) {
+        return (a + b + c) / 3.0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Average: " + computeAverage(10, 20, 30));
+    }
+}
+        </pre>
+        <p>This method computes the average of three integers and returns it as a double.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>3. Display the Middle Character of a String</h2>
+        <pre>
+public class MiddleCharacter {
+    public static String getMiddleCharacter(String str) {
+        int length = str.length();
+        if (length % 2 == 0) {
+            return String.valueOf(str.charAt(length / 2 - 1));
+        } else {
+            return str.substring(length / 2 - 1, length / 2 + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Middle character(s): " + getMiddleCharacter("example"));
+        System.out.println("Middle character(s): " + getMiddleCharacter("test"));
+    }
+}
+        </pre>
+        <p>This method checks the length of the string and returns either one or two middle characters based on its length.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>4. Count All the Words in a String</h2>
+        <pre>
+public class WordCounter {
+    public static int countWords(String str) {
+        String[] words = str.trim().split("\\s+");
+        return words.length;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Word count: " + countWords("Hello world, this is a test."));
+    }
+}
+        </pre>
+        <p>This method counts the number of words in a given string by splitting the string at whitespace.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>5. Compute the Future Investment Value</h2>
+        <pre>
+public class InvestmentCalculator {
+    public static double computeFutureValue(double investment, double interestRate, int years) {
+        return investment * Math.pow((1 + interestRate / 100), years);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Future investment value: " + computeFutureValue(1000, 5, 10));
+    }
+}
+        </pre>
+        <p>This method computes the future investment value based on the initial investment, interest rate, and number of years.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>6. Print Characters Between Two Characters</h2>
+        <pre>
+public class CharacterRange {
+    public static void printCharacters(char start, char end) {
+        for (char ch = start; ch <= end; ch++) {
+            System.out.print(ch + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        printCharacters('A', 'P');
+    }
+}
+        </pre>
+        <p>This method prints all characters between two specified characters (inclusive).</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>7. Check Whether a String is a Valid Password</h2>
+        <pre>
+public class PasswordValidator {
+    public static boolean isValidPassword(String password) {
+        return password.length() >= 8 && password.matches(".*[!@#$%^&*].*");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Is valid password: " + isValidPassword("Password123!"));
+    }
+}
+        </pre>
+        <p>This method checks if the password is at least 8 characters long and contains a special character.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>8. Display the Current Date and Time</h2>
+        <pre>
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class CurrentDateTime {
+    public static String getCurrentDateTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.now().format(formatter);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Current date and time: " + getCurrentDateTime());
+    }
+}
+        </pre>
+        <p>This method returns the current date and time formatted as a string.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>9. Find All Twin Prime Numbers Less Than 100</h2>
+        <pre>
+public class TwinPrimes {
+    public static void findTwinPrimes() {
+        for (int i = 3; i < 100; i++) {
+            if (isPrime(i) && isPrime(i + 2)) {
+                System.out.println("(" + i + ", " + (i + 2) + ")");
+            }
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        findTwinPrimes();
+    }
+}
+        </pre>
+        <p>This method finds and prints all twin prime numbers less than 100.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>10. Count the Number of Digits in an Integer</h2>
+        <pre>
+public class DigitCounter {
+    public static int countDigits(int number) {
+        return String.valueOf(number).length();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Number of digits: " + countDigits(123456));
+    }
+}
+        </pre>
+        <p>This method counts the number of digits in a non-negative integer.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>11. Check Whether Three Integers are Consecutive</h2>
+        <pre>
+public class ConsecutiveChecker {
+    public static boolean areConsecutive(int a, int b, int c) {
+        return (Math.abs(a - b) == 1 && Math.abs(b - c) == 1) || (Math.abs(a - c) == 1 && Math.abs(c - b) == 1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Are consecutive: " + areConsecutive(4, 5, 6));
+    }
+}
+        </pre>
+        <p>This method checks if three integers are consecutive and returns true or false.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>12. Check if One Integer is the Middle Point Between the Other Two</h2>
+        <pre>
+public class MiddlePointChecker {
+    public static boolean isMiddlePoint(int a, int b, int c) {
+        return (a == (b + c) / 2) || (b == (a + c) / 2) || (c == (a + b) / 2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Is middle point: " + isMiddlePoint(4, 2, 6));
+    }
+}
+        </pre>
+        <p>This method checks if one of the three integers is the middle point between the other two.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>13. Check Whether All Characters in a String are Vowels</h2>
+        <pre>
+public class VowelChecker {
+    public static boolean areAllVowels(String str) {
+        return str.chars().allMatch(ch -> "aeiouAEIOU".indexOf(ch) != -1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("All characters are vowels: " + areAllVowels("aeiou"));
+    }
+}
+        </pre>
+        <p>This method checks if all characters in a string are vowels and returns true or false.</p>
+    </div>
+
+</body>
+</html>

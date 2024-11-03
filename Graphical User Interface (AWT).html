@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphical User Interface (AWT) Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #004d7a;
+        }
+        pre {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .tutorial {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graphical User Interface (AWT) Programs</h1>
+
+    <div class="tutorial">
+        <h2>1. Simple AWT Application with Button (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class ButtonFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Button with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        Button button = new Button("Click Me");
+        frame.add(button);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This AWT application creates a button using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>2. Simple AWT Application with Custom Layout</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomLayoutApp {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom Layout");
+        frame.setLayout(null);
+        
+        Button button = new Button("Click Me");
+        button.setBounds(50, 50, 80, 30);
+        frame.add(button);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a custom layout by setting the bounds of the button manually.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>3. Multiple Buttons with BorderLayout</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class BorderLayoutButtons {
+    public static void main(String[] args) {
+        Frame frame = new Frame("BorderLayout Example");
+        frame.setLayout(new BorderLayout());
+        
+        frame.add(new Button("North"), BorderLayout.NORTH);
+        frame.add(new Button("South"), BorderLayout.SOUTH);
+        frame.add(new Button("East"), BorderLayout.EAST);
+        frame.add(new Button("West"), BorderLayout.WEST);
+        frame.add(new Button("Center"), BorderLayout.CENTER);
+        
+        frame.setSize(400, 300);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application displays multiple buttons using BorderLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>4. AWT Application with TextField (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class TextFieldFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("TextField with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        TextField textField = new TextField(20);
+        frame.add(textField);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a TextField using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>5. AWT Application with TextField (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomTextFieldLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom TextField Layout");
+        frame.setLayout(null);
+        
+        TextField textField = new TextField();
+        textField.setBounds(50, 50, 200, 30);
+        frame.add(textField);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a TextField with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>6. AWT Application with Checkbox (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CheckboxFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Checkbox with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        Checkbox checkbox = new Checkbox("Check Me");
+        frame.add(checkbox);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a Checkbox using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>7. AWT Application with Checkbox (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomCheckboxLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom Checkbox Layout");
+        frame.setLayout(null);
+        
+        Checkbox checkbox = new Checkbox("Check Me");
+        checkbox.setBounds(50, 50, 100, 30);
+        frame.add(checkbox);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a Checkbox with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>8. AWT Application with Label (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class LabelFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Label with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        Label label = new Label("This is a label");
+        frame.add(label);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a Label using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>9. AWT Application with Label (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomLabelLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom Label Layout");
+        frame.setLayout(null);
+        
+        Label label = new Label("This is a label");
+        label.setBounds(50, 50, 200, 30);
+        frame.add(label);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a Label with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>10. AWT Application with Choice (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class ChoiceFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Choice with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        Choice choice = new Choice();
+        choice.add("Option 1");
+        choice.add("Option 2");
+        choice.add("Option 3");
+        frame.add(choice);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a Choice component using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>11. AWT Application with Choice (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomChoiceLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom Choice Layout");
+        frame.setLayout(null);
+        
+        Choice choice = new Choice();
+        choice.add("Option 1");
+        choice.add("Option 2");
+        choice.add("Option 3");
+        choice.setBounds(50, 50, 150, 30);
+        frame.add(choice);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a Choice component with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>12. AWT Application with CheckboxGroup (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CheckboxGroupFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("CheckboxGroup with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        CheckboxGroup group = new CheckboxGroup();
+        Checkbox checkbox1 = new Checkbox("Option 1", group, false);
+        Checkbox checkbox2 = new Checkbox("Option 2", group, false);
+        
+        frame.add(checkbox1);
+        frame.add(checkbox2);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a CheckboxGroup using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>13. AWT Application with CheckboxGroup (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomCheckboxGroupLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom CheckboxGroup Layout");
+        frame.setLayout(null);
+        
+        CheckboxGroup group = new CheckboxGroup();
+        Checkbox checkbox1 = new Checkbox("Option 1", group, false);
+        checkbox1.setBounds(50, 50, 100, 30);
+        frame.add(checkbox1);
+        
+        Checkbox checkbox2 = new Checkbox("Option 2", group, false);
+        checkbox2.setBounds(50, 100, 100, 30);
+        frame.add(checkbox2);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a CheckboxGroup with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>14. AWT Application with List (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class ListFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("List with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        List list = new List();
+        list.add("Item 1");
+        list.add("Item 2");
+        list.add("Item 3");
+        frame.add(list);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a List component using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>15. AWT Application with List (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomListLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom List Layout");
+        frame.setLayout(null);
+        
+        List list = new List();
+        list.add("Item 1");
+        list.add("Item 2");
+        list.add("Item 3");
+        list.setBounds(50, 50, 100, 60);
+        frame.add(list);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a List component with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>16. AWT Application with TextArea (FlowLayout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class TextAreaFlowLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("TextArea with FlowLayout");
+        frame.setLayout(new FlowLayout());
+        
+        TextArea textArea = new TextArea(5, 20);
+        frame.add(textArea);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application creates a TextArea using FlowLayout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>17. AWT Application with TextArea (Custom Layout)</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class CustomTextAreaLayout {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Custom TextArea Layout");
+        frame.setLayout(null);
+        
+        TextArea textArea = new TextArea();
+        textArea.setBounds(50, 50, 200, 100);
+        frame.add(textArea);
+        
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application demonstrates a TextArea with a custom layout.</p>
+    </div>
+
+    <div class="tutorial">
+        <h2>18. AWT Calculator Application with GridLayout</h2>
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Frame frame = new Frame("Calculator");
+        frame.setLayout(new GridLayout(4, 4));
+        
+        TextField display = new TextField();
+        frame.add(display);
+        
+        // Adding buttons for calculator
+        for (int i = 0; i < 10; i++) {
+            frame.add(new Button(String.valueOf(i)));
+        }
+        
+        frame.add(new Button("+"));
+        frame.add(new Button("-"));
+        frame.add(new Button("*"));
+        frame.add(new Button("/"));
+        
+        frame.setSize(300, 300);
+        frame.setVisible(true);
+        
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+        </pre>
+        <p>This application designs a simple calculator layout using GridLayout.</p>
+    </div>
+
+</body>
+</html>
